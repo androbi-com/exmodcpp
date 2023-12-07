@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.5)
+project(executors VERSION 0.1.0)
+set (CMAKE_CXX_STANDARD 20)
+add_executable(stdexec_partasks main.cpp)
+target_link_libraries(stdexec_partasks STDEXEC::stdexec)
+#target_include_directories(stdexec_partasks PRIVATE ../../libs/stdexec/include)
+#target_link_libraries(stdexec_partasks -lpthread)

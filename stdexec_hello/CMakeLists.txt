@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.5)
+project(executors VERSION 0.1.0)
+set (CMAKE_CXX_STANDARD 20)
+add_executable(stdexec_hello main.cpp)
+target_link_libraries(stdexec_hello STDEXEC::stdexec)
+
+#target_include_directories(stdexec_hello PRIVATE ../../libs/stdexec/include)
+#add_subdirectory(../../libs/stdexec build)
+#target_link_libraries(stdexec_hello PRIVATE STDEXEC::stdexec -lpthread)
+#target_link_libraries(stdexec_hello -lpthread)

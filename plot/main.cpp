@@ -51,7 +51,7 @@ int main(void)
 
     // use a lambda to define the function and apply it as y=f(x)
     // need to specify the type of the lambda because std::function<T(T)> is no valid match
-    apply_function<numtype>(x, y, [](numtype x)->numtype { return factor*std::sin(x); });
+    apply_function<numtype>(x, y, [](numtype xloc)->numtype { return factor*std::sin(xloc); });
     auto result = integrate(y, delta);
     std::cout << "result:" << result << std::endl;
 

@@ -5,4 +5,12 @@
         "c++2b"
     ],
     "c-cpp-flylint.clang.executable": "clang-15",
+    "c-cpp-flylint.clang.includePaths": [
+        "build/_deps/stdexec-src/include",
+    ],
+    "cmake.configureOnOpen": true,
+    "files.associations": {
+        "thread": "cpp",
+        "__threading_support": "cpp"
+    },
 }
