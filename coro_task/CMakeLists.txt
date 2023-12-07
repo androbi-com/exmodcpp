@@ -7,7 +7,7 @@ if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") # coroutine header without "expe
     endif()
     add_compile_options("-std=c++20")
 else() # coroutines require at least gcc 10
-    if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS 14)
+    if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS 10)
         message(FATAL_ERROR "gcc version must be at least 10!")
     endif()
     add_compile_options("-std=c++20")
