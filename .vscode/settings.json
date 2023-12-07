@@ -2,7 +2,7 @@
     "C_Cpp.default.compilerPath": "/usr/bin/clang-15",
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
     "c-cpp-flylint.clang.standard": [
-        "c++20"
+        "c++2b"
     ],
     "c-cpp-flylint.clang.executable": "clang-15",
 }
