@@ -17,9 +17,5 @@
         "thread": "cpp",
         "__threading_support": "cpp",
         "coroutine": "cpp"
-    },
-    "github.codespaces.defaultExtensions": [
-        "jbenden.c-cpp-flylint",
-    ]
-
+    }
 }
