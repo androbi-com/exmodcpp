@@ -12,6 +12,7 @@ list(REMOVE_ITEM target_options "-Wnon-virtual-dtor")
 #add_compile_options(-Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic)
 # -Wextra -Wshadow -Wnon-virtual-dtor 
 set_property(TARGET stdexec_mandel PROPERTY COMPILE_OPTIONS ${target_options})
+# stdexec library 
 target_link_libraries(stdexec_mandel STDEXEC::stdexec)
-#target_include_directories(stdexec_mandel PRIVATE ../../libs/stdexec/include ../../libs/cmdline)
-#target_link_libraries(stdexec_mandel -lpthread)
+# cmdline, only add include
+target_include_directories(stdexec_mandel PUBLIC $<BUILD_INTERFACE:${cmdline_SOURCE_DIR}>)

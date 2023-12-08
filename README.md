@@ -1,7 +1,6 @@
 # C++ examples
 
-I will collect some of the C++ examples that I have made while learning 
-"modern" C++ in this repository. Each subdirectory corresponds to a different example 
+Some C++ examples. Each subdirectory corresponds to a different example 
 and produces an executable in `build`. 
 
 * hello - a "hello world" could not be missing here, use it as a base for new examples
