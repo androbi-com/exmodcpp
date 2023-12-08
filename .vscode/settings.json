@@ -11,6 +11,7 @@
     "cmake.configureOnOpen": true,
     "files.associations": {
         "thread": "cpp",
-        "__threading_support": "cpp"
+        "__threading_support": "cpp",
+        "coroutine": "cpp"
     },
 }
