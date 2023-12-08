@@ -13,10 +13,10 @@ RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
 
 COPY ./llvm.sh /tmp/
 
-RUN if [ "${INSTALL_CLANG_VERSION}" != "none" ]; then \
-        chmod +x /tmp/llvm.sh && /tmp/llvm.sh ${INSTALL_CLANG_VERSION}; \
-    fi \
-    && rm -f /tmp/llvm.sh
+# RUN if [ "${INSTALL_CLANG_VERSION}" != "none" ]; then \
+#         chmod +x /tmp/llvm.sh && /tmp/llvm.sh ${INSTALL_CLANG_VERSION}; \
+#     fi \
+#     && rm -f /tmp/llvm.sh
 
 # [Optional] Uncomment this section to install additional vcpkg ports.
 # RUN su vscode -c "${VCPKG_ROOT}/vcpkg install <your-port-name-here>"
