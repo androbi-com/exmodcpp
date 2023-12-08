@@ -10,7 +10,7 @@ and produces an executable in `build`.
 
 ## coroutines
 
-* coro_task - a simple example of a coroutine-based task scheduler
+* coro_task - a simple example of a coroutine-based task 
 
 ## Pointer to implementation - pImpl
 
