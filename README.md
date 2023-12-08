@@ -50,7 +50,13 @@ as provided by Microsoft (see https://github.com/devcontainers/images/tree/main/
 with a recent `cmake` and `clang`. The extensions "Copilot" and "C/C++ Advanced Lint" 
 are installed with the standard ones provided by Microsoft (C/C++, CMake, CMakeTools).
 
-We also install `gnuplot-qt` for the `plot` application. As this application has a GUI 
-you need to ssh into codespace using `gh`:
+We also install `gnuplot-qt` and `xauth` for the `plot` application. As this application has a GUI 
+you need to ssh into codespace using `gh` with X forwarding
 
-    gh codespace ssh -- -X
+    gh codespace ssh -- -XY
+
+Check by running 
+
+    ./build/plot/plot
+
+

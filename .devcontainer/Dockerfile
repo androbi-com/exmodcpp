@@ -13,7 +13,7 @@ RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
 
 # add add-apt-repository for llvm install
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends software-properties-common gnuplot-qt
+    && apt-get -y install --no-install-recommends software-properties-common gnuplot-qt xauth
 
 # llvm install (up to version 17). To update, wget https://apt.llvm.org/llvm.sh
 # and add "-y" to line add-apt-repository ...
