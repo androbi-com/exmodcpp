@@ -8,7 +8,11 @@
     "c-cpp-flylint.clang.includePaths": [
         "build/_deps/stdexec-src/include",
     ],
-    "cmake.configureOnOpen": true,
+    "c-cpp-flylint.lizard.enable": false,
+    "c-cpp-flylint.cppcheck.enable": false,
+    "c-cpp-flylint.flawfinder.enable": false,
+    "c-cpp-flylint.flexelint.enable": false,
+    "cmake.configureOnOpen": false,
     "files.associations": {
         "thread": "cpp",
         "__threading_support": "cpp",
@@ -17,4 +21,5 @@
     "github.codespaces.defaultExtensions": [
         "jbenden.c-cpp-flylint",
     ]
+
 }
