@@ -32,13 +32,25 @@ https://meetingcpp.com/mcpp/slides/2021/Type%20Erasure%20-%20A%20Design%20Analys
 
 * type_erasure -  type erasure as presented by Klaus Igelberger
 
-# Setup
+# Workspace setup
 
 I use VS Code with the following extensions:
 
 * C/C++ (Microsoft)
 * CMake
 * CMake Tools
-* C/C++ Advanced Lint (configured to use clang-15 and c++20, see .vscode/settings.json)
+* C/C++ Advanced Lint (configured to use clang-17 and c++2b, see .vscode/settings.json)
+* Copilot
   
-The clang-12 compiler is used as "active kit" in CMake Tools.
+gcc-11 is normally used as "active kit" in CMake Tools.
+
+This repository includes a `.devcontainer` setup which permits to run a development
+environment on a local Docker environment or on codespaces. It is the default C++ image
+as provided by Microsoft (see https://github.com/devcontainers/images/tree/main/src/cpp)
+with a recent `cmake` and `clang`. The extensions "Copilot" and "C/C++ Advanced Lint" 
+are installed with the standard ones provided by Microsoft (C/C++, CMake, CMakeTools).
+
+We also install `gnuplot-qt` for the `plot` application. As this application has a GUI 
+you need to ssh into codespace using `gh`:
+
+    gh codespace ssh -- -X
