@@ -1,10 +1,10 @@
 {
-    "C_Cpp.default.compilerPath": "/usr/bin/clang-15",
+    "C_Cpp.default.compilerPath": "/usr/bin/clang-17",
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
     "c-cpp-flylint.clang.standard": [
         "c++2b"
     ],
-    "c-cpp-flylint.clang.executable": "clang-15",
+    "c-cpp-flylint.clang.executable": "clang-17",
     "c-cpp-flylint.clang.includePaths": [
         "build/_deps/stdexec-src/include",
     ],
@@ -14,4 +14,10 @@
         "__threading_support": "cpp",
         "coroutine": "cpp"
     },
+    "github.codespaces.defaultExtensions": [
+        "ms-vscode.cpptools-extension-pack",
+        "github.copilot",
+        "github.copilot-chat",
+        "jbenden.c-cpp-flylint",
+      ],
 }
