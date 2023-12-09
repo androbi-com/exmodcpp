@@ -5,12 +5,21 @@
 
 // integrate function given by y using trapezoidal rule with fixed step size delta
 template <typename T, std::size_t N>
-auto integrate(const std::array<T,N>& y, T delta) noexcept {
-    T sum = y[0] + y[y.size() - 1];
-    for (std::size_t i = 1; i < y.size() - 1; ++i) {
-        sum += 2 * y[i];
+auto integrate(const std::array<T,N>& y, T delta) {
+    // check if N is at least 2
+
+    // check if y has at least 2 elements
+    if (y.size() < 2) {
+        throw std::invalid_argument("number of points must be at least 2");
     }
-    return sum * delta / 2;
+    const T half = 0.5;
+    // trapezoidal rule: sum_{i=1}^{N-1} (y[i-1] + y[i]) * delta / 2
+    // endpoints contribute only once, midpoints twice
+    T sum = half * (y[0] + y[N - 1]);
+    for (std::size_t i = 1; i < N - 1; ++i) {
+        sum += y[i]; // NOLINT (cppcoreguidelines-pro-bounds-pointer-arithmetic)
+    }
+    return sum * delta;
 }
 
 // create linearly spaced points between a and b in points
@@ -21,20 +30,25 @@ auto linspace(std::array<T, N>& points, T a, T b) {
     }
     const T delta = (b - a) / (points.size() - 1.0);
     for (std::size_t i = 0; i < points.size(); ++i) {
-        points[i] = a + i * delta;
+        points[i] = a + i * delta; // NOLINT (cppcoreguidelines-pro-bounds-pointer-arithmetic)
     }
     return delta;
 }
 
 template <typename T, std::size_t N>
 void apply_function(const std::array<T, N>& x, std::array<T, N>& y, std::function< T(T) > f) {
+    // check if x and y have the same size
+    if (x.size() != y.size()) {
+        throw std::invalid_argument("x and y must have the same size");
+    }
     for (std::size_t i = 0; i < x.size(); ++i) {
-        y[i] = f(x[i]);
+        y[i] = f(x[i]); // NOLINT (cppcoreguidelines-pro-bounds-pointer-arithmetic)
     }
 }
 
 int main(void)
 {
+    constexpr auto CANVAS_SIZE = 800;
     constexpr auto N = 100;
     // alias for the type of the data, use float, double or long double 
     using numtype = double;
@@ -42,7 +56,7 @@ int main(void)
     constexpr numtype xmin = 0;
     constexpr numtype xmax = 2*M_PI;
 
-    // use std::array for fixed size arrays
+    // use std::array for fixed size arrays, these will be assigned so no constexpr
     auto x = std::array<numtype, N>();
     auto y = std::array<numtype, N>();
     
@@ -69,20 +83,15 @@ int main(void)
     plot.xrange(xmin, xmax);
     plot.yrange(*ymin, *ymax);
 
-    // Set the legend to be on the bottom along the horizontal
-    plot.legend()
-        .atOutsideBottom()
-        .displayHorizontal()
-        .displayExpandWidthBy(2);
-
-    // Draw the curve
-    plot.drawCurve(x, y).label("2*sin(x)");
-
+    // Plot the sine function
+    plot.drawCurve(x, y).label("y=sin(x)");    
     // Create figure to hold plot
     sciplot::Figure fig = {{plot}};
-
-    // Create canvas to hold figure and show it
+    // Create canvas to hold figure
     sciplot::Canvas canvas = {{fig}};
-    canvas.size(1200, 1200);
-    canvas.show();
+
+    // Set the size of the canvas
+    canvas.size(CANVAS_SIZE, CANVAS_SIZE);
+    //canvas.show();
+    canvas.save("sine-function.pdf");
 }

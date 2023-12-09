@@ -8,6 +8,8 @@
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
+
+	// add access via ssh using "gh codespace ssh -- -XY"
 	"features": {
 		"ghcr.io/devcontainers/features/sshd:1": {
 			"version": "latest"
@@ -28,7 +30,8 @@
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"github.copilot",
-				"jbenden.c-cpp-flylint"
+				"jbenden.c-cpp-flylint",
+				"mathematic.vscode-pdf"
 			]
 		}
 	}

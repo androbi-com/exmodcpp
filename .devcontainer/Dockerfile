@@ -13,14 +13,16 @@ RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
 
 # add add-apt-repository for llvm install
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends software-properties-common gnuplot-qt xauth
+    && apt-get -y install --no-install-recommends software-properties-common gnuplot-nox clang-tidy
+# with X: gnuplot-qt xauth
 
 # llvm install (up to version 17). To update, wget https://apt.llvm.org/llvm.sh
 # and add "-y" to line add-apt-repository ...
 COPY ./llvm.sh /tmp/
 
 RUN if [ "${INSTALL_CLANG_VERSION}" != "none" ]; then \
-        chmod +x /tmp/llvm.sh && /tmp/llvm.sh ${INSTALL_CLANG_VERSION}; \
+        chmod +x /tmp/llvm.sh && /tmp/llvm.sh ${INSTALL_CLANG_VERSION} \
+        && apt-get -y install --no-install-recommends clang-tidy-${INSTALL_CLANG_VERSION}; \
     fi \
     && rm -f /tmp/llvm.sh
 

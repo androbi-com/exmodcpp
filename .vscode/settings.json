@@ -1,12 +1,30 @@
 {
     "C_Cpp.default.compilerPath": "/usr/bin/clang-17",
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/build/_deps/stdexec-src/include",
+        "${workspaceFolder}/build/_deps/cmdline-src",
+        "${workspaceFolder}/build/_deps/sciplot-src"
+    ],
+    "C_Cpp.codeAnalysis.runAutomatically": true,
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "C_Cpp.codeAnalysis.clangTidy.path": "/usr/bin/clang-tidy-17",
+    "C_Cpp.codeAnalysis.clangTidy.args": [
+        "-header-filter=^${sourceDir}/",
+        "-checks=-*,cppcoreguidelines-*",
+        "-warnings-as-errors=*"
+    ],
+    "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [
+        "cppcoreguidelines-*"
+    ],
     "c-cpp-flylint.clang.standard": [
         "c++2b"
     ],
     "c-cpp-flylint.clang.executable": "clang-17",
     "c-cpp-flylint.clang.includePaths": [
-        "build/_deps/stdexec-src/include",
+        "${workspaceFolder}/build/_deps/stdexec-src/include",
+        "${workspaceFolder}/build/_deps/cmdline-src",
+        "${workspaceFolder}/build/_deps/sciplot-src"
     ],
     "c-cpp-flylint.lizard.enable": false,
     "c-cpp-flylint.cppcheck.enable": false,
@@ -16,6 +34,7 @@
     "files.associations": {
         "thread": "cpp",
         "__threading_support": "cpp",
-        "coroutine": "cpp"
+        "coroutine": "cpp",
+        "array": "cpp"
     }
 }
