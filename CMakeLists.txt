@@ -1,9 +1,14 @@
 cmake_minimum_required(VERSION 3.5)
 project(examples VERSION 0.1.0)
 set (CMAKE_CXX_STANDARD 20)
+message("> Compiler ID: ${CMAKE_CXX_COMPILER_ID}")
 #add_compile_options(-Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic)
 # -Werror
-add_compile_options(-Wno-non-template-friend)
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+  add_compile_options(-Wno-non-template-friend)
+elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "NVHPC")
+  add_compile_options("--diag_suppress code_is_unreachable,empty_throw_specification_not_cpp20")
+endif()
 # activate cpm
 include(cmake/CPM.cmake)
 
@@ -38,7 +43,6 @@ CPMAddPackage(
   GIT_TAG master
   OPTIONS "SCIPLOT_BUILD_EXAMPLES OFF" "SCIPLOT_BUILD_TESTS OFF" "SCIPLOT_BUILD_DOCS OFF"
 )
-
 
 add_subdirectory(hello)
 add_subdirectory(pimpl)
