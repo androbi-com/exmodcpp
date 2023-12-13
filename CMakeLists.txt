@@ -12,7 +12,7 @@ endif()
 # activate cpm
 include(cmake/CPM.cmake)
 
-# add package for format (see build/_deps/stdexec-src)
+#add package for format
 CPMAddPackage(
   NAME format
   GITHUB_REPOSITORY fmtlib/fmt
@@ -28,20 +28,20 @@ CPMAddPackage(
   OPTIONS "STDEXEC_BUILD_EXAMPLES OFF" "STDEXEC_BUILD_TESTS OFF"
 )
 
-#add package for cmdline, only download
-CPMAddPackage(
-  NAME cmdline
-  GIT_REPOSITORY https://github.com/tanakh/cmdline.git
-  GIT_TAG master
-  DOWNLOAD_ONLY YES
-)
-
 # add sciplot package
 CPMAddPackage(
   NAME sciplot
   GIT_REPOSITORY https://github.com/sciplot/sciplot
   GIT_TAG master
   OPTIONS "SCIPLOT_BUILD_EXAMPLES OFF" "SCIPLOT_BUILD_TESTS OFF" "SCIPLOT_BUILD_DOCS OFF"
+)
+
+#add package for cmdline, only download
+CPMAddPackage(
+  NAME cmdline
+  GIT_REPOSITORY https://github.com/tanakh/cmdline.git
+  GIT_TAG master
+  DOWNLOAD_ONLY YES
 )
 
 add_subdirectory(hello)
