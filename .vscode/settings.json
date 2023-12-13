@@ -4,7 +4,8 @@
     "C_Cpp.default.includePath": [
         "${workspaceFolder}/build/_deps/stdexec-src/include",
         "${workspaceFolder}/build/_deps/cmdline-src",
-        "${workspaceFolder}/build/_deps/sciplot-src"
+        "${workspaceFolder}/build/_deps/sciplot-src",
+        "${workspaceFolder}/build/_deps/format-src/include"
     ],
     "C_Cpp.codeAnalysis.runAutomatically": true,
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,
@@ -24,7 +25,8 @@
     "c-cpp-flylint.clang.includePaths": [
         "${workspaceFolder}/build/_deps/stdexec-src/include",
         "${workspaceFolder}/build/_deps/cmdline-src",
-        "${workspaceFolder}/build/_deps/sciplot-src"
+        "${workspaceFolder}/build/_deps/sciplot-src",
+        "${workspaceFolder}/build/_deps/format-src/include"
     ],
     "c-cpp-flylint.lizard.enable": false,
     "c-cpp-flylint.cppcheck.enable": false,

@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.5)
+project(coro_tasksched VERSION 0.1.0)
+set (CMAKE_CXX_STANDARD 20)
+add_executable(coro_tasksched main.cpp)
+#target_include_directories(coro_tasksched PUBLIC $<BUILD_INTERFACE:${format_SOURCE_DIR}>/include)
+target_link_libraries(coro_tasksched PRIVATE fmt::fmt-header-only)

@@ -7,6 +7,14 @@ add_compile_options(-Wno-non-template-friend)
 # activate cpm
 include(cmake/CPM.cmake)
 
+# add package for format (see build/_deps/stdexec-src)
+CPMAddPackage(
+  NAME format
+  GITHUB_REPOSITORY fmtlib/fmt
+  GIT_TAG master
+  OPTIONS "FMT_HEADER_ONLY ON"
+)
+
 # add package for stdexec (see build/_deps/stdexec-src)
 CPMAddPackage(
   NAME stdexec
@@ -31,11 +39,13 @@ CPMAddPackage(
   OPTIONS "SCIPLOT_BUILD_EXAMPLES OFF" "SCIPLOT_BUILD_TESTS OFF" "SCIPLOT_BUILD_DOCS OFF"
 )
 
-add_subdirectory(coro_task)
+
 add_subdirectory(hello)
 add_subdirectory(pimpl)
 add_subdirectory(plot)
 add_subdirectory(type_erasure)
+add_subdirectory(coro_task)
+add_subdirectory(coro_tasksched)
 add_subdirectory(stdexec_hello)
 add_subdirectory(stdexec_partasks)
 add_subdirectory(stdexec_mandel)

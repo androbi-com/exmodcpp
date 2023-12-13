@@ -7,7 +7,7 @@ and produces an executable in `build`.
 * plot - a small example for doing numerics with std::array, we also use the sciplot
          library to display a function using gnuplot. Install gnuplot-qt for the UI to work.  
 
-## coroutines
+## Coroutines
 
 * coro_task - a simple example of a coroutine-based task 
 
@@ -20,10 +20,14 @@ and produces an executable in `build`.
 Some examples for the [P2300 proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2300r7.html). 
 See also https://www.hpcwire.com/2022/12/05/new-c-sender-library-enables-portable-asynchrony/
 
-* stdexec_hello - a hello world with stdexec
-  https://github.dev/NVIDIA/stdexec
+* stdexec_hello - a hello world with stdexec - https://github.dev/NVIDIA/stdexec
 * stdexec_mandel - a mandelbrot example using "bulk"
 * stdexec_partasks - a parallel tasks example using "when_all"
+
+## Thread examples
+
+* threads_condvar thread communication with [std::condition_variable](https://en.cppreference.com/w/cpp/thread/condition_variable)
+* youtube see https://www.youtube.com/watch?v=ywJ4cq67-uc&ab_channel=CppNow
   
 ## Type erasure
 
