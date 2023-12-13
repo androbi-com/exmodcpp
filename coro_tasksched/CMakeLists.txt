@@ -5,7 +5,6 @@ add_compile_options("-std=c++20")
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "NVHPC")
     add_compile_options(-fcoroutines)
 endif()
-
+add_compile_options("--diag_suppress code_is_unreachable,empty_throw_specification_not_cpp20")
 add_executable(coro_tasksched main.cpp)
-#target_include_directories(coro_tasksched PUBLIC $<BUILD_INTERFACE:${format_SOURCE_DIR}>/include)
 target_link_libraries(coro_tasksched PRIVATE fmt::fmt-header-only)
