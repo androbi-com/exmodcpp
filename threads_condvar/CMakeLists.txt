@@ -1,3 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 project(threads_condvar VERSION 0.1.0)
 add_executable(threads_condvar main.cpp)
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+target_link_libraries(threads_condvar PRIVATE Threads::Threads)

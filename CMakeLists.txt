@@ -6,8 +6,6 @@ message("> Compiler ID: ${CMAKE_CXX_COMPILER_ID}")
 # -Werror
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
   add_compile_options(-Wno-non-template-friend)
-elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "NVHPC")
-  
 endif()
 # activate cpm
 include(cmake/CPM.cmake)

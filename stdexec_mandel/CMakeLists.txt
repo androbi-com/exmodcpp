@@ -3,8 +3,10 @@ project(stdexec_mandel VERSION 0.1.0)
 set (CMAKE_CXX_STANDARD 20)
 add_executable(stdexec_mandel main.cpp)
 
-# warnings from cmdline
-target_compile_options(stdexec_mandel PRIVATE "--diag_suppress empty_throw_specification_not_cpp20")
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "NVHPC")
+    # nvc++: suppress warning about empty throw specification
+    target_compile_options(stdexec_mandel PRIVATE "--diag_suppress empty_throw_specification_not_cpp20")
+endif()
 # stdexec library 
 target_link_libraries(stdexec_mandel STDEXEC::stdexec)
 # cmdline, only add include
