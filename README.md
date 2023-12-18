@@ -3,6 +3,11 @@
 Some C++ examples. Each subdirectory corresponds to a different example 
 and produces an executable in `build`. 
 
+    mkdir build
+    cd build
+    cmake [-D CMAKE_C_COMPILER=nvc -D CMAKE_CXX_COMPILER=nvc++] ..
+    cmake --build .
+
 * hello - a "hello world" could not be missing here, use it as a base for new examples
 * plot - a small example for doing numerics with std::array, we also use the sciplot
          library to display a function using gnuplot. Install gnuplot-qt for the UI to work.  

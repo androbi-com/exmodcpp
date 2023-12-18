@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-if (DEFINED CMAKE_CUDA_COMPILER)
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "NVHPC")
     project(cuda_hello LANGUAGES CXX CUDA)
     #enable_language(CUDA)
     add_executable(cuda_hello main.cu)
