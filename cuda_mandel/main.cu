@@ -7,7 +7,7 @@
 #include "cmdline.h"
 #include <sys/ioctl.h>
 #include <unistd.h>
-#include <cuComplex.h>
+#include <math.h>
 
 typedef std::complex<float> complex;
 
@@ -68,7 +68,7 @@ __global__ void point_iterate(int* area, float zr1, float zc1, float zr2, float 
     float cc = zc1 + zc;
     zr = 0.0;
     zc = 0.0;
-    while ( (zr*zr + zc*zc) < 4.0 && i < max_iter) {
+    while ( sqrtf(zr*zr + zc*zc) < 2.0 && i < max_iter) {
         zr = zr*zr - zc*zc + cr;
         zc = 2.0*zr*zc + cc;
         i++;
