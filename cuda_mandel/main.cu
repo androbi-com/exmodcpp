@@ -20,7 +20,7 @@ class ascii_view {
     std::vector<char> data_;
   public:
     void set_data(const int* h_iter) {
-        for (size_t i = 0; i < win.cols_ * win.rows_; ++i) {
+        for (size_t i = 0; i < cols_ * rows_; ++i) {
             data_[i] = (h_iter[i] == 10 ? char(42) : char(h_iter[i]+48));
         }
     }
@@ -63,9 +63,9 @@ __global__ void point_iterate(int* area, float zr1, float zc1, float zr2, float 
         return;
     }
     float zr = (zr2 - zr1) * ix / (nx - 1.0);
-    float zc = (zc2 - zc1) * iy / (ny - 1.0));
-    float cr = z1r + zr; 
-    float cc = z1c + zc;
+    float zc = (zc2 - zc1) * iy / (ny - 1.0);
+    float cr = zr1 + zr; 
+    float cc = zc1 + zc;
 
     //printf(" %e %e \n", cuCrealf(c), cuCimagf(c));
     while ( (zr*zr + zc*zc) < 4.0 && i < max_iter) {
