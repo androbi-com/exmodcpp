@@ -21,7 +21,8 @@ class ascii_view {
   public:
     void set_data(const int* h_iter) {
         for (size_t i = 0; i < cols_ * rows_; ++i) {
-            data_[i] = (h_iter[i] == 10 ? char(42) : char(h_iter[i]+48));
+            int i10 = h_iter[i] / 10;
+            data_[i] = (i10 == 10 ? char(42) : char(h_iter[i10]+48));
         }
     }
     void print() const {
@@ -58,7 +59,6 @@ __global__ void point_iterate(int* area, float zr1, float zc1, float zr2, float 
     unsigned int ix = blockIdx.x * blockDim.x + threadIdx.x;
     unsigned int iy = blockIdx.y * blockDim.y + threadIdx.y;
     unsigned int idx = iy * nx + ix;
-    //printf(" %d %d \n", ix, iy);
     if (ix >= nx || iy >= ny) {
         return;
     }
@@ -68,13 +68,11 @@ __global__ void point_iterate(int* area, float zr1, float zc1, float zr2, float 
     float cc = zc1 + zc;
     zr = 0.0;
     zc = 0.0;
-    //printf(" %e %e \n", cuCrealf(c), cuCimagf(c));
     while ( (zr*zr + zc*zc) < 4.0 && i < max_iter) {
         zr = zr*zr - zc*zc + cr;
         zc = 2.0*zr*zc + cc;
         i++;
     }
-    //printf(" %d \n", i);
     area[idx] = i;
 };    
 
