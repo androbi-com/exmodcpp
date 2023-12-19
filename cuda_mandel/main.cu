@@ -66,14 +66,15 @@ __global__ void point_iterate(int* area, float zr1, float zc1, float zr2, float 
     float zc = (zc2 - zc1) * iy / (ny - 1.0);
     float cr = zr1 + zr; 
     float cc = zc1 + zc;
-
+    zr = 0.0;
+    zc = 0.0;
     //printf(" %e %e \n", cuCrealf(c), cuCimagf(c));
     while ( (zr*zr + zc*zc) < 4.0 && i < max_iter) {
         zr = zr*zr - zc*zc + cr;
         zc = 2.0*zr*zc + cc;
         i++;
     }
-    printf(" %d \n", i);
+    //printf(" %d \n", i);
     area[idx] = i;
 };    
 
