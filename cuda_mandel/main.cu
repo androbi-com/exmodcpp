@@ -53,7 +53,7 @@ void usage(const std::string& name) {
     std::cout << "I.e: " << std::endl << "  " << name << " $(tput cols) $(tput lines)" << std::endl;
 }
 
-// kernel to iterate one point in the c-plane, returns iterations to escape
+// kernel to iterate one point in the c-plane, returns iterations to escape or max_iter if not escaped
 __global__ void point_iterate(int* area, float zr1, float zc1, float zr2, float zc2, const int nx, const int ny, const int max_iter) {
     int i = 0;
     unsigned int ix = blockIdx.x * blockDim.x + threadIdx.x;
@@ -75,7 +75,6 @@ __global__ void point_iterate(int* area, float zr1, float zc1, float zr2, float 
         zc = zcn;
         i++;
     }
-    //printf("c: (%e,%e) i: %d\n", cr, cc, i);
     area[idx] = i;
 };    
 
