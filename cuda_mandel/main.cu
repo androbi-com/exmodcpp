@@ -69,8 +69,10 @@ __global__ void point_iterate(int* area, float zr1, float zc1, float zr2, float 
     zr = 0.0;
     zc = 0.0;
     while ( sqrtf(zr*zr + zc*zc) < 2.0 && i < max_iter) {
-        zr = zr*zr - zc*zc + cr;
-        zc = 2.0*zr*zc + cc;
+        float zrn = zr*zr - zc*zc + cr;
+        float zcn = 2.0*zr*zc + cc;
+        zr = zrn;
+        zc = zcn;
         i++;
     }
     area[idx] = i;
