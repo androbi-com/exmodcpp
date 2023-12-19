@@ -22,6 +22,7 @@ class ascii_view {
     void set_data(const int* h_iter) {
         for (size_t i = 0; i < cols_ * rows_; ++i) {
             int i10 = h_iter[i] / 10;
+            printf("i: %d i10: %d\n", h_iter[i], i10);
             data_[i] = (i10 == 10 ? char(42) : char(h_iter[i10]+48));
         }
     }
