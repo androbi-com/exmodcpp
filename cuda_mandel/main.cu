@@ -62,8 +62,8 @@ __global__ void point_iterate(int* area, float zr1, float zc1, float zr2, float 
     if (ix >= nx || iy >= ny) {
         return;
     }
-    float zr = (zr2 - zr1) * ix / (nx - 1.0);
-    float zc = (zc2 - zc1) * iy / (ny - 1.0);
+    float zr = ((zr2 - zr1) * ix) / (nx - 1.0);
+    float zc = ((zc2 - zc1) * iy) / (ny - 1.0);
     float cr = zr1 + zr; 
     float cc = zc1 + zc;
     zr = 0.0;
